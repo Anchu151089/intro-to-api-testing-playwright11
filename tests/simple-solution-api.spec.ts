@@ -122,9 +122,7 @@ test(' case 6 delete order with invalid order id receive 400 bad request  ', asy
   request,
 }) => {
   const requestHeaders = {
-
     api_key: '1234567898765432',
-
   }
   const response = await request.delete('https://backend.tallinn-learning.ee/test-orders/11', {
     headers: requestHeaders,
