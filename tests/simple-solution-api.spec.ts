@@ -58,7 +58,6 @@ test('post order with invalid payload should receive code 400', async ({ request
   expect(response.status()).toBe(StatusCodes.BAD_REQUEST)
 })
 test('case1 put request with valid order id return code 200 ', async ({ request }) => {
-
   const requestBody = {
     "status": "OPEN",
     "courierId": 0,
@@ -78,7 +77,6 @@ test('case1 put request with valid order id return code 200 ', async ({ request 
   expect(response.status()).toBe(StatusCodes.OK)
 })
 test(' case 2 put request with invalid id return code 400 ', async ({ request }) => {
-
   const requestBody = {
     "status": "OPEN",
     "courierId": 0,
@@ -98,20 +96,16 @@ test(' case 2 put request with invalid id return code 400 ', async ({ request })
   expect(response.status()).toBe(StatusCodes.BAD_REQUEST)
 })
 test(' case 3 get request with username and password return 200 ', async ({ request }) => {
-
   const response = await request.get('https://backend.tallinn-learning.ee/test-orders?username=anchu&password=1234', {
   })
   console.log('response body:', await response.json())
   expect(response.status()).toBe(StatusCodes.OK)
-
 })
 test(' case 4 get request without username and password return 500  ', async ({ request }) => {
-
   const response = await request.get('https://backend.tallinn-learning.ee/test-orders', {
   })
   console.log('response body:', await response.json())
   expect(response.status()).toBe(StatusCodes.INTERNAL_SERVER_ERROR)
-
 })
 test(' case 5 delete order with valid order id receive 204  ', async ({ request }) => {
   const requestHeaders = {
