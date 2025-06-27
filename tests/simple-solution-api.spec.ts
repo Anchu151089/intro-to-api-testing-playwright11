@@ -114,7 +114,6 @@ test(' case 4 get request without username and password return 500  ', async ({ 
 
 })
 test(' case 5 delete order with valid order id receive 204  ', async ({ request }) => {
-
   const requestHeaders = {
     api_key: '1234567898765432',
   }
@@ -125,7 +124,6 @@ test(' case 5 delete order with valid order id receive 204  ', async ({ request 
   expect(response.status()).toBe(StatusCodes.NO_CONTENT)
 })
 test(' case 6 delete order with invalid order id receive 400 bad request  ', async ({ request }) => {
-
   const requestHeaders = {
     api_key: '1234567898765432',
   }
