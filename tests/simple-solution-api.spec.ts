@@ -56,7 +56,6 @@ test('post order with invalid payload should receive code 400', async ({ request
   const response = await request.post('https://backend.tallinn-learning.ee/test-orders', {
     data: requestBody,
   })
-  // Log the response status and body
   console.log('response status:', response.status())
   console.log('response body:', await response.text())
   expect(response.status()).toBe(StatusCodes.BAD_REQUEST)
