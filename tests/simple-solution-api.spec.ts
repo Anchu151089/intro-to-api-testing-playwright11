@@ -59,51 +59,52 @@ test('post order with invalid payload should receive code 400', async ({ request
 })
 test('case1 put request with valid order id return code 200 ', async ({ request }) => {
   const requestBody = {
-    "status": "OPEN",
-    "courierId": 0,
-    "customerName": "Anchu",
-    "customerPhone": "Anchu_PhoneNo",
-    "comment": "Hello",
-    "id": 0
+    status: 'OPEN',
+    courierId: 0,
+    customerName: 'Anchu',
+    customerPhone: 'Anchu_PhoneNo',
+    comment: 'Hello',
+    id: 0,
   }
   const requestHeaders = {
     api_key: '1234567898765432',
   }
   const response = await request.put('https://backend.tallinn-learning.ee/test-orders/1', {
     data: requestBody,
-    headers: requestHeaders
+    headers: requestHeaders,
   })
   console.log('response body:', await response.json())
   expect(response.status()).toBe(StatusCodes.OK)
 })
 test(' case 2 put request with invalid id return code 400 ', async ({ request }) => {
   const requestBody = {
-    "status": "OPEN",
-    "courierId": 0,
-    "customerName": "Anchu",
-    "customerPhone": "Anchu_PhoneNo",
-    "comment": "Hello",
-    "id": 0
+    status: 'OPEN',
+    courierId: 0,
+    customerName: 'Anchu',
+    customerPhone: 'Anchu_PhoneNo',
+    comment: 'Hello',
+    id: 0,
   }
   const requestHeaders = {
     api_key: '1234567898765432',
   }
   const response = await request.put('https://backend.tallinn-learning.ee/test-orders/11', {
     data: requestBody,
-    headers: requestHeaders
+    headers: requestHeaders,
   })
   console.log('response body:', await response.json())
   expect(response.status()).toBe(StatusCodes.BAD_REQUEST)
 })
 test(' case 3 get request with username and password return 200 ', async ({ request }) => {
-  const response = await request.get('https://backend.tallinn-learning.ee/test-orders?username=anchu&password=1234', {
-  })
+  const response = await request.get(
+    'https://backend.tallinn-learning.ee/test-orders?username=anchu&password=1234',
+    {},
+  )
   console.log('response body:', await response.json())
   expect(response.status()).toBe(StatusCodes.OK)
 })
 test(' case 4 get request without username and password return 500  ', async ({ request }) => {
-  const response = await request.get('https://backend.tallinn-learning.ee/test-orders', {
-  })
+  const response = await request.get('https://backend.tallinn-learning.ee/test-orders', {})
   console.log('response body:', await response.json())
   expect(response.status()).toBe(StatusCodes.INTERNAL_SERVER_ERROR)
 })
@@ -117,7 +118,9 @@ test(' case 5 delete order with valid order id receive 204  ', async ({ request 
   console.log('response status:', response.status())
   expect(response.status()).toBe(StatusCodes.NO_CONTENT)
 })
-test(' case 6 delete order with invalid order id receive 400 bad request  ', async ({ request }) => {
+test(' case 6 delete order with invalid order id receive 400 bad request  ', async ({
+  request,
+}) => {
   const requestHeaders = {
     api_key: '1234567898765432',
   }
