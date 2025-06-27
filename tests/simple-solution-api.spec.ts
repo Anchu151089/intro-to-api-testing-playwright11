@@ -115,7 +115,6 @@ test(' case 5 delete order with valid order id receive 204  ', async ({ request 
   const response = await request.delete('https://backend.tallinn-learning.ee/test-orders/1', {
     headers: requestHeaders,
   })
-
   console.log('response status:', response.status())
   expect(response.status()).toBe(StatusCodes.NO_CONTENT)
 })
