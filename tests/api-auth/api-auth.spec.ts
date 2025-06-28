@@ -25,12 +25,10 @@ test('login for students with correct username and password receive 401', async 
   expect.soft(responseBody).toMatch(jwtRegex)
 })
 test('login with incorrect HTTP method (GET)', async ({ request }) => {
-
   const response = await request.get(authUrl, {})
   expect.soft(response.status()).toBe(StatusCodes.METHOD_NOT_ALLOWED)
 })
 test('login with incorrect body structure', async ({ request }) => {
-
   const invalidBody = LoginDto.createLoginWithInCorrectData()
   const response = await request.post(authUrl, {
     data: invalidBody,
