@@ -16,7 +16,6 @@ test('login for students with correct username and password receive 401', async 
   const response = await request.post(authUrl, {
     data: loginData,
   })
-
   const responseBody = await response.text()
   console.log('Response body :' + responseBody)
   expect(response.status()).toBe(StatusCodes.OK)
