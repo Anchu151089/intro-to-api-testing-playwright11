@@ -5,13 +5,11 @@ import { StatusCodes } from 'http-status-codes'
 const authUrl ='https://backend.tallinn-learning.ee/login/student'
 
 test('login for students with incorrect username and password receive 401', async ({ request }) => {
-
   const loginData = new LoginDto('string11','string11')
   const response = await request.post(authUrl, {
     data: loginData,
   })
   expect(response.status()).toBe(StatusCodes.UNAUTHORIZED)
-
 })
 test('login for students with correct username and password receive 401', async ({ request }) => {
 
