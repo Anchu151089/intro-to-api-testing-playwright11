@@ -12,8 +12,8 @@ test('login for students with incorrect username and password receive 401', asyn
   expect(response.status()).toBe(StatusCodes.UNAUTHORIZED)
 })
 test('login for students with correct username and password receive 401', async ({ request }) => {
-  const loginData = LoginDto.createLoginWithCorrectData()
-  //const loginData = new LoginDto('testautomvl', 'whs4s5qbYbfT2n')
+  //const loginData = LoginDto.createLoginWithCorrectData()
+  const loginData = new LoginDto('testautomvl', 'whs4s5qbYbfT2n')
   const response = await request.post(authUrl, {
     data: loginData,
   })
